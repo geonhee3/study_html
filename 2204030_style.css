@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    background-color: whitesmoke;
+    padding: 40px;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: navy;
+  }
+  
+  table {
+    width: 600px;
+    margin: 0 auto;
+    border: 2px solid lightgray;
+    border-collapse: collapse;
+    background-color: white;
+  }
+  
+  td {
+    padding: 12px;
+    border: 1px solid gray;
+    vertical-align: top;
+    font-size: 14px;
+    color: black;
+  }
+  
+  label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"],
+  input[type="color"],
+  select {
+    width: auto;
+
+    border: 1px solid gray;
+    box-sizing: border-box;
+  }
+  
+  input[type="color"] {
+    width: 100px;
+    height: 30px;
+  }
+
+  input[type="range"] {
+    width: auto;
+    height: 20px;
+    margin-top: 5px;
+  }
+  
+  .age-display {
+    font-size: 13px;
+    color: dimgray;
+    margin-top: 5px;
+  }
+  
+  .checkbox-group label,
+  .radio-group label {
+    font-weight: normal;
+    margin-right: 10px;
+  }
+  
+  .button-group {
+    text-align: center;
+    padding-top: 15px;
+  }
+  
+  button {
+
+    background-color: steelblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: royalblue;
+  }
+  
+  dl {
+    text-align: left;
+  }
+  
+  table td img {
+    display: block;
+    margin: auto;
+  }
+
+  input[type=text] { /* text 창에만 적용 */
+    color : blueviolet; 
+  }
+  input:hover, textarea:hover { /* 마우스 올라 올 때 */
+    background : aliceblue;
+  }
+  input[type=text]:focus, input[type=email]:focus { /* 포커스 받을 때 */
+    font-size : 150%;
+    color :chartreuse 
+  }
+  label {
+    display : block; /* 새 라인에서 시작 */
+    padding : 5px;
+  }
+  label span {
+    display : inline-block;
+    width : 90px;
+    text-align : right;
+    padding : 10px;
+  }
+  #menubar {
+    background : lightgrey;
+  }
+  #menubar ul { /* 여백과 패딩 모두 0 */
+    margin : 0;
+    padding : 0;
+    width : 567px; /* 모든 아이템(<li>)을 한 줄에 품을 수 있는 폭 */
+  }
+  #menubar ul li {
+    display : inline-block; /* 새 줄로 넘어가지 않게 */
+    list-style-type : none; /* 마커 삭제 */
+    padding : 0px 15px; /* top=bottom=0, left=right=15px */ 
+  }
+  #menubar ul li a {
+    color : white;
+      text-decoration : none; /* 링크 보이지 않게 */
+  }
+  #menubar ul li a:hover {
+     color : cornflowerblue;  /* 마우스 올라 갈 때 색 */
+  }
