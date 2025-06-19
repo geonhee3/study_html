@@ -2,95 +2,164 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>계속 업데이트</title>
+  <title>메인 페이지</title>
   <link rel="stylesheet" href="2204030_style.css">
-</head>
-<body>
+  <style>
+    ol li {
+      transition: transform 0.3s, font-size 0.3s;
+    }
+    ol li:hover {
+      transform: scale(1.5);
+      font-size: 1.5em;
+      color: red;
+    }
 
+    .team-item {
+      font-size: 10pt;
+      display: inline-block; 
+      padding: 5px 10px;
+      margin: 5px 0;
+      transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+      transform-origin: center center; 
+    }
+
+    .team-item:hover {
+      transform: scale(1.5);
+      font-size: 15pt;
+      color: red;
+    }
+
+    .team-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+
+  <script>
+    function showEventAlert() {
+      const message = `
+[HTML 요소 및 이벤트 목록]
+
+1. onfocus 이벤트
+ → input에 포커스될 때 실행됨
+   예: <input onfocus="...">
+
+2. 하이퍼링크
+ → 페이지 이동 링크
+   예: <a href="...">...</a>
+
+3. 비밀번호 입력
+ → type="password"
+   예: <input type="password">
+
+4. 이메일 입력
+ → type="email"
+   예: <input type="email">
+
+5. 날짜 선택 (달력)
+ → type="date"
+   예: <input type="date">
+
+6. 라디오 버튼 (단일 선택)
+   예: <input type="radio" name="gender">
+
+7. 체크박스 (다중 선택)
+   예: <input type="checkbox" name="food">
+      `;
+      alert(message);
+    }
+  </script>
+</head>
+
+<body>
   <nav id="menubar">
     <ul>
-      <li><a href="#">학생정보</a></li>
-      <li><a href="#">좋아하는 음식</a></li>
-      <li><a href="#">좋아하는 축구팀</a></li>
+      <li><a href="https://www.linkedin.com/in/geonhee-kim-60ab85254/">학생정보</a></li>
+      <li><a href="https://naver.me/5ssBjAI1">좋아하는 음식</a></li>
+      <li><a href="https://www.arsenal.com">좋아하는 축구팀</a></li>
       <li><a href="2204030_signup_ver1.0.html">회원가입</a></li>
+      <li><a href="#" onclick="showEventAlert()">이벤트 목록</a></li>
     </ul>
   </nav>
 
-<div>
-  <h3>학생정보</h3>
-  <hr>
-  <div style="display: flex; align-items: flex-start; gap: 20px;">
-    <img src="meme.png" width="250" height="350" alt="학생 사진">
+  <div>
+    <h3>학생정보</h3><hr>
+    <div style="display: flex; gap: 20px;">
+      <img src="meme.png" width="250" height="350" alt="학생 사진">
+      <dl>
+        <dt>학과</dt><dd>비즈니스컨설팅</dd>
+        <dt>학번</dt><dd>2204030</dd>
+        <dt>이름</dt><dd>김건희</dd>
+        <dt class="image-link">
+          <a href="https://www.hansung.ac.kr" target="_blank">
+            <img src="상상부기.webp" width="100" height="100" alt="상상부기 로고">
+          </a>
+          <div>학교사이트 바로가기</div>
+      </dl>
+    </div>
+    <hr>
     <dl>
-      <dt>학과</dt>
-      <dd>비즈니스컨설팅</dd>
-
-      <dt>학번</dt>
-      <dd>2204030</dd>
-
-      <dt>이름</dt>
-      <dd>김건희</dd><br><br>
-
-      <dt class="image-link">
-        <a href="https://www.hansung.ac.kr/sites/hansung/index.do" target="_blank">
-          <img src="상상부기.webp" width="100" height="100" alt="상상부기 로고">
-        </a>
-        <div>학교사이트 바로가기</div>
+      <dt>내가좋아하는 전국 맛집</dt><dd>
+        <table border="1">
+          <thead><tr><th colspan="3">사진을 클릭하면 사이트로 이동</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href="https://naver.me/5du4DHEv" target="_blank">
+                  <img src="kuk.jpg" width="100" height="100" alt="국 이미지">
+                </a>
+              </td>
+              <td>
+                <a href="https://naver.me/FfeOlrFV" target="_blank">
+                  <img src="ch.jpg" width="100" height="100" alt="치킨 이미지">
+                </a>
+              </td>
+              <td>
+                <a href="https://naver.me/5ssBjAI1" target="_blank">
+                  <img src="kebab.jpg" width="100" height="100" alt="케밥 링크">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </dd>
     </dl>
-  </div><br>
-  <dl>
-    
-  </dl>
-
-  <hr>
-
-  <dl>
-    <dt>좋아하는 음식 정보</dt>
-    <dd>
-      <table border="1">
-        <thead>
-          <tr><th colspan="3">사진을 클릭하면 사이트로 이동</th></tr><br>
-        </thead>
-        <tbody>
-          <tr>
-            <td><img src="kuk.jpg" width="100" height="100" alt="국 이미지" ></td>
-            <td><img src="ch.jpg" width="100" height="100" alt="치킨 이미지"></td>
-            <td>
-              <a href="https://www.youtube.com/watch?v=SRDkG3H6DlM" target="_blank">
-                <img src="kebab.jpg" width="100" height="100" alt="케밥 유튜브 링크">
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </dd>
-  </dl>
-
-  <hr>
-
-  <ol type="1">
-    <div>좋아하는 축구팀</div>
-    <li>아스날</li>
-    <li>레알마드리드</li>
-    <li>파리생제르망</li>
-  </ol>
-
-</div>
-
-<hr>
-<h3>로그인</h3>
-<form action="2204030_signup_ver1.0.html" method="get">
-  <label for="loginid"> 사용자 ID :</label>
-  <input type="text" id="loginid" name="loginid"><br>
-
-  <label for="loginpw">비밀 번호 :</label>
-  <input type="password" id="loginpw" name="loginpw"><br><br>
-
-  <div style="display: flex; justify-content: space-between; width: 130px;">
-    <button type="submit" formaction="2204030_signup_ver1.0.html">회원가입</button>
-    <button type="submit">로그인</button>
   </div>
-</form>
 
+  <!-- 좋아하는 축구팀 -->
+  <hr>
+  <div style="position: relative; z-index: 1;">
+    <div style="font-size: 20px; margin-bottom: 10px;">좋아하는 축구팀</div>
+    <ol type="1" style="list-style-position: inside; padding-left: 0; overflow: visible;">
+      <li style="margin: 10px 0;">
+        <a href="https://www.arsenal.com" target="_blank" style="text-decoration: none; color: inherit;">
+          유구한 역사와 전통을 자랑하는 프리미어리그 최초 무패우승팀 아스날!!
+        </a>
+      </li>
+      <li style="margin: 10px 0;">
+        <a href="https://www.realmadrid.com/en" target="_blank" style="text-decoration: none; color: inherit;">
+          레알마드리드
+        </a>
+      </li>
+      <li style="margin: 10px 0;">
+        <a href="https://en.psg.fr" target="_blank" style="text-decoration: none; color: inherit;">
+          파리생제르망
+        </a>
+      </li>
+    </ol>
+  </div>
+
+  <hr>
+  <h3>로그인</h3>
+  <form action="2204030_signup_ver1.0.html" method="get">
+    <label for="loginid">사용자 ID :</label>
+    <input type="text" id="loginid" name="loginid"><br>
+    <label for="loginpw">비밀번호 :</label>
+    <input type="password" id="loginpw" name="loginpw"><br><br>
+    <div style="display: flex; width: 130px; justify-content: space-between;">
+      <button type="submit" formaction="2204030_signup_ver1.0.html">회원가입</button>
+      <button type="submit">로그인</button>
+    </div>
+  </form>
 </body>
 </html>

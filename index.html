@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>웹프로그래밍 실습 과제</title>
+  <link rel="stylesheet" href="2204030_style.css">
+  <style>
+    body {
+      background: url('ssbg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', '맑은 고딕', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    nav {
+      background: rgba(38, 49, 89, 0.85);
+      color: #fff;
+      padding: 24px 0 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    nav h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 2.3rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .center-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      margin-top: 30px;
+    }
+    .menu-table {
+      background: transparent;
+      border: none;
+      border-collapse: separate;
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+      min-width: 280px;
+    }
+    .menu-table tr {
+      border: none;
+      background: transparent;
+      height: 80px;
+    }
+    .menu-table td {
+      border: none;
+      background: transparent;
+      padding: 0 0 28px 0;
+      text-align: center;
+    }
+    .menu-table td:last-child {
+      padding-bottom: 0;
+    }
+    .menu-table button {
+      width: 260px;
+      height: 55px;
+      font-size: 19px;
+      border-radius: 16px;
+      border: none;
+      background: #263159;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 2px 10px rgba(38,49,89,0.14);
+      letter-spacing: 1px;
+    }
+    .menu-table button:hover {
+      background: #435585;
+      transform: scale(1.06);
+    }
+    @media (max-width: 600px) {
+      .menu-table {
+        min-width: 90vw;
+      }
+      .menu-table button {
+        width: 90vw;
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>웹프로그래밍 실습 홈페이지</h1>
+  </nav>
+  <div class="center-area">
+    <table class="menu-table">
+      <tr>
+        <td><button onclick="location.href='main.html'">자기소개 페이지</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="location.href='2204030_signup_ver1.0.html'">회원가입</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="location.href='qna.html'">QnA (문의하기)</button></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

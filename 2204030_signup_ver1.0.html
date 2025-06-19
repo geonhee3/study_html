@@ -3,72 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <title>회원가입 폼</title>
-  <link rel="stylesheet" href="2204030_style.css">
-  
+  <link rel="stylesheet" href="123.css">
   <script>
     function resetForm() {
       document.forms['signupForm'].reset();
-      document.getElementById('ageValue').innerText = 30;
+      document.getElementById('calculatedAge').innerText = '';
+    }
+
+    function calculateAge() {
+      const bd = document.getElementById('birthdate').value;
+      if (!bd) return;
+      const birthDate = new Date(bd);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+      document.getElementById('calculatedAge').innerText = `계산된 나이: ${age}세`;
     }
 
     function submitForm(event) {
       event.preventDefault();
-      alert("회원가입이 완료되었습니다!");
+      const form = document.forms['signupForm'];
+      const userid = form.userid.value;
+      const email = form.email.value;
+      const calcAge = document.getElementById('calculatedAge').innerText;
+      const gender = form.gender.value;
+      const major = form.major.value;
+      const birthdate = form.birthdate.value;
+      let foods = '';
+      form.food.forEach(f => { if (f.checked) foods += f.value + ' '; });
+
+      alert(`회원정보\n아이디: ${userid}\n이메일: ${email}\n${calcAge}\n성별: ${gender}\n전공: ${major}\n생년월일: ${birthdate}\n좋아하는 음식: ${foods}`);
     }
   </script>
 </head>
 <body>
-
-  <h3>회원가입 폼</h3>
-  <hr>
-
-  <form name="signupForm" method="post" onsubmit="submitForm(event)">
-    <label for="userid">사용자 ID : </label>
-    <input type="text" id="userid" name="userid" placeholder="아이디 입력"><br>
-
-    <label for="password">비밀 번호 : </label>
-    <input type="password" id="password" name="password" placeholder="비밀번호 입력"><br>
-
-    <label for="email">이 메 일 : </label>
-    <input type="email" id="email" name="email" placeholder="example@domain.com"><br>
-
-    <label for="age">나이 : </label>
-    <input type="range" id="age" name="age" min="1" max="100" value="30" 
-           oninput="document.getElementById('ageValue').innerText = this.value;">
-    <div class="age-display">선택한 나이: <span id="ageValue">30</span>세</div><br>
+  <h3>회원가입 폼</h3><hr>
+  <form name="signupForm" onsubmit="submitForm(event)">
+    <label>ID : </label><input type="text" name="userid"><br>
+    <label>비번 : </label><input type="password" name="password"><br>
+    <label>이메일 : </label><input type="email" name="email"><br>
+    <label>생년월일 : </label><input type="date" id="birthdate" name="birthdate"
+         onchange="calculateAge()" onfocus="console.log('생년월일 input focus')"><br>
+    <div id="calculatedAge" style="margin:10px 0;"></div>
 
     <label>성별 :</label>
-    <input type="radio" id="male" name="gender" value="male" checked> 남자
-    <input type="radio" id="female" name="gender" value="female"> 여자<br>
+    <input type="radio" name="gender" value="남자" checked>남자
+    <input type="radio" name="gender" value="여자">여자<br>
 
-    <label>좋아하는 음식 (복수 선택):</label><br>
-    <input type="checkbox" name="food" value="케밥">케밥
-    <input type="checkbox" name="food" value="치킨">치킨
-    <input type="checkbox" name="food" value="피자">피자
-    <input type="checkbox" name="food" value="닭가슴살">닭가슴살
-    <input type="checkbox" name="food" value="돼지국밥">돼지국밥
-    <input type="checkbox" name="food" value="짜장밥">짜장밥
-    <input type="checkbox" name="food" value="볶음밥">볶음밥
-    <input type="checkbox" name="food" value="알리올리오">알리올리오<br>
+    <label>좋아하는 음식:</label><br>
+    <input type="checkbox" name="food" value="케밥" onchange="console.log('케밥 선택됨')">케밥
+    <input type="checkbox" name="food" value="치킨" onchange="console.log('치킨 선택됨')">치킨
+    <input type="checkbox" name="food" value="피자" onchange="console.log('피자 선택됨')">피자<br>
 
-    <label for="major">학과 :</label>
-    <select id="major" name="major">
-      <option value="비즈니스컨설팅학과">비즈니스컨설팅학과</option>
-      <option value="미래인재학부">미래인재학부</option>
-      <option value="융합디자인학과">융합디자인학과</option>
+    <label>전공 :</label>
+    <select name="major" onchange="console.log('전공 변경됨')">
+      <option>비즈니스컨설팅학과</option>
+      <option>미래인재학부</option>
+      <option>융합디자인학과</option>
     </select><br>
 
-    <label for="birthdate">생년월일 :</label>
-    <input type="date" id="birthdate" name="birthdate"><br>
-
-    <label for="favcolor">좋아하는 색 :</label>
-    <input type="color" id="favcolor" name="favcolor"><br>
-
-    <div style="display: flex; justify-content: space-between; width: 150px;">
+    <div style="display:flex; gap:10px; margin-top:10px;">
       <button type="button" onclick="resetForm()">정보 초기화</button>
-      <button type="submit">회원가입</button>
+      <button type="submit" onclick="console.log('폼 제출 클릭됨')">회원가입</button>
     </div>
   </form>
-
 </body>
 </html>
