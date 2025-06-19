@@ -30,10 +30,11 @@
       const gender = form.gender.value;
       const major = form.major.value;
       const birthdate = form.birthdate.value;
+      const favcolor = form.favcolor.value;
       let foods = '';
       form.food.forEach(f => { if (f.checked) foods += f.value + ' '; });
 
-      alert(`회원정보\n아이디: ${userid}\n이메일: ${email}\n${calcAge}\n성별: ${gender}\n전공: ${major}\n생년월일: ${birthdate}\n좋아하는 음식: ${foods}`);
+      alert(`회원정보\n아이디: ${userid}\n이메일: ${email}\n${calcAge}\n성별: ${gender}\n전공: ${major}\n생년월일: ${birthdate}\n좋아하는 음식: ${foods}\n좋아하는 색: ${favcolor}`);
     }
   </script>
 </head>
@@ -47,6 +48,10 @@
          onchange="calculateAge()" onfocus="console.log('생년월일 input focus')"><br>
     <div id="calculatedAge" style="margin:10px 0;"></div>
 
+    <input type="range" id="age" name="age" min="1" max="100" value="30" 
+           oninput="document.getElementById('ageValue').innerText = this.value;">
+    <div class="age-display"> 나이: <span id="ageValue">30</span>세</div><br>
+
     <label>성별 :</label>
     <input type="radio" name="gender" value="남자" checked>남자
     <input type="radio" name="gender" value="여자">여자<br>
@@ -54,7 +59,10 @@
     <label>좋아하는 음식:</label><br>
     <input type="checkbox" name="food" value="케밥" onchange="console.log('케밥 선택됨')">케밥
     <input type="checkbox" name="food" value="치킨" onchange="console.log('치킨 선택됨')">치킨
-    <input type="checkbox" name="food" value="피자" onchange="console.log('피자 선택됨')">피자<br>
+    <input type="checkbox" name="food" value="피자" onchange="console.log('피자 선택됨')">피자
+    <input type="checkbox" name="food" value="피자" onchange="console.log('닭가슴살 선택됨')">닭가슴살
+    <input type="checkbox" name="food" value="피자" onchange="console.log('돼지국밥 선택됨')">돼지국밥
+    <input type="checkbox" name="food" value="피자" onchange="console.log('볶음밥 선택됨')">볶음밥<br>
 
     <label>전공 :</label>
     <select name="major" onchange="console.log('전공 변경됨')">
@@ -62,6 +70,10 @@
       <option>미래인재학부</option>
       <option>융합디자인학과</option>
     </select><br>
+
+    <label for="favcolor">좋아하는 색 :</label>
+    <input type="color" id="favcolor" name="favcolor"><br>
+
 
     <div style="display:flex; gap:10px; margin-top:10px;">
       <button type="button" onclick="resetForm()">정보 초기화</button>
